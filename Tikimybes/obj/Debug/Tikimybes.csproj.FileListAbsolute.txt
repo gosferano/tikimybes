@@ -1,0 +1,6 @@
+D:\Users\gosferano\Documents\Visual Studio 2015\Projects\Tikimybes\Tikimybes\bin\Debug\Tikimybes.exe.config
+D:\Users\gosferano\Documents\Visual Studio 2015\Projects\Tikimybes\Tikimybes\bin\Debug\Tikimybes.exe
+D:\Users\gosferano\Documents\Visual Studio 2015\Projects\Tikimybes\Tikimybes\bin\Debug\Tikimybes.pdb
+D:\Users\gosferano\Documents\Visual Studio 2015\Projects\Tikimybes\Tikimybes\obj\Debug\Tikimybes.csprojResolveAssemblyReference.cache
+D:\Users\gosferano\Documents\Visual Studio 2015\Projects\Tikimybes\Tikimybes\obj\Debug\Tikimybes.exe
+D:\Users\gosferano\Documents\Visual Studio 2015\Projects\Tikimybes\Tikimybes\obj\Debug\Tikimybes.pdb
