@@ -13,7 +13,7 @@ namespace Tikimybes
         private static int triesDone = 0;
         private static int success = 0;
         private static Random rand = new Random();
-        private static Func<bool> function = TryKeys;   // edit this to resemble correct try function 
+        private static Func<bool> function = TryPhone;   // edit this to resemble correct try function 
 
         static void Main(string[] args)
         {
@@ -37,9 +37,9 @@ namespace Tikimybes
         {
             #region Editable
             List<int> numbers = new List<int>();
-            int houseNum = 9;
-            int abonentsNum = 3;
-            int callsNum = 5;
+            int houseNum = 7;
+            int abonentsNum = 4;
+            int callsNum = 3;
             #endregion
 
             int bustedOn = 0;
@@ -60,12 +60,13 @@ namespace Tikimybes
             {
                 int randNum = numbers[rand.Next(numbers.Count)];
                 numbers.Remove(randNum);
-                if (houses[(randNum - 1) / 3].Contains(true) && bustedOn == 0)
+                List<List<bool>> h = houses;
+                if (houses[(randNum - 1) / abonentsNum].Contains(true) && bustedOn == 0)
                 {
                     bustedOn = i + 1;
                     break;
                 }
-                houses[(randNum - 1) / 3][(randNum - 1) % 3] = true;
+                houses[(randNum - 1) / abonentsNum][(randNum - 1) % abonentsNum] = true;
             }
 
             if (bustedOn > callsNum)
@@ -82,7 +83,7 @@ namespace Tikimybes
         {
             #region Editable
             List<int> keys = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-            int locks = 4;
+            int locks = 2;
             int targetKeysMissed = 4;
             #endregion
 
