@@ -13,7 +13,7 @@ namespace Tikimybes
         private static int triesDone = 0;
         private static int success = 0;
         private static Random rand = new Random();
-        private static Func<bool> function = TryPhone;   // edit this to resemble correct try function 
+        private static Func<bool> function = TryFootball;   // edit this to resemble correct try function 
 
         static void Main(string[] args)
         {
@@ -31,6 +31,25 @@ namespace Tikimybes
             }
             Console.WriteLine("The succes rate was " + (success*1.0/tries));
             Console.ReadKey();
+        }
+
+        static bool TryFootball()
+        {
+            int teams = 14;
+            int spectators = 4;
+            List<int> spectatorTeams = new List<int>();
+            for (int i=0; i<spectators; i++)
+            {
+                spectatorTeams.Add(rand.Next(teams) + 1);
+            }
+            foreach (int team in spectatorTeams)
+            {
+                if (spectatorTeams.Where(x => x == team).Count() > 1)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         static bool TryPhone()
