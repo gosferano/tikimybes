@@ -13,7 +13,7 @@ namespace Tikimybes
         private static int triesDone = 0;
         private static int success = 0;
         private static Random rand = new Random();
-        private static Func<bool> function = TryFootball;   // edit this to resemble correct try function 
+        private static Func<bool> function = TryPhone;   // edit this to resemble correct try function 
 
         static void Main(string[] args)
         {
@@ -31,6 +31,43 @@ namespace Tikimybes
             }
             Console.WriteLine("The succes rate was " + (success*1.0/tries));
             Console.ReadKey();
+        }
+
+        static bool TryTrain()
+        {
+            #region Editable
+            int rooms = 9;
+            int friends = 5;
+            int slots = 3;
+            #endregion
+
+            List<List<bool>> wagon = new List<List<bool>>();
+            for (int i=0; i<rooms; i++)
+            {
+                wagon.Add(new List<bool>());
+                for (int j = 0; j < slots; j++)
+                {
+                    wagon[i].Add(false);
+                }
+            }
+
+            List<int> tickets = new List<int>();
+            for (int i=0; i< rooms*slots; i++)
+            {
+                tickets.Add(i);
+            }
+
+            for (int i=0; i<friends; i++)
+            {
+                int randTicket = tickets[rand.Next(tickets.Count)];
+                tickets.Remove(randTicket);
+                if (wagon[randTicket / slots].Contains(true)) {
+                    return true;
+                }
+                wagon[randTicket / slots][randTicket % slots] = true;
+            }
+
+            return false;
         }
 
         static bool TryFootball()
@@ -88,7 +125,7 @@ namespace Tikimybes
                 houses[(randNum - 1) / abonentsNum][(randNum - 1) % abonentsNum] = true;
             }
 
-            if (bustedOn > callsNum)
+            if (bustedOn == callsNum)
             {
                 return true;
             }
