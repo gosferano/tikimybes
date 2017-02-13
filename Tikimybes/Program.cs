@@ -9,11 +9,11 @@ namespace Tikimybes
 {
     class Program
     {
-        private static int tries = 1000000000;          // edit this to set number of tries being made
+        private static int tries = 100000000;          // edit this to set number of tries being made
         private static int triesDone = 0;
         private static int success = 0;
         private static Random rand = new Random();
-        private static Func<bool> function = TryPhone;   // edit this to resemble correct try function 
+        private static Func<bool> function = TryExam;   // edit this to resemble correct try function 
 
         static void Main(string[] args)
         {
@@ -31,6 +31,29 @@ namespace Tikimybes
             }
             Console.WriteLine("The succes rate was " + (success*1.0/tries));
             Console.ReadKey();
+        }
+
+        static bool TryExam()
+        {
+            int studentNum = 13;
+            int targetStudent = 6;
+            List<int> students = new List<int>();
+            List<bool> pardons = new List<bool>();
+            for (int i=0; i<studentNum; i++)
+            {
+                students.Add(i);
+                pardons.Add(false);
+            }
+            while (students.Contains(targetStudent-1) && pardons[targetStudent-1]==false)
+            {
+                int randStudent = students[rand.Next(students.Count())];
+                if (students.Where(x => x<randStudent).Count() > 0)
+                {
+                    pardons[randStudent] = true;
+                }
+                students.Remove(randStudent);
+            }
+            return !pardons[targetStudent - 1];
         }
 
         static bool TryTrain()
